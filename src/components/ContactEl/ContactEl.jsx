@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ContactLi, ContactDeleteBtn } from './ContactEl.styled';
 import { deleteContact } from '../../redux/contactsSlice';
-import { getContacts, getFilterSearch } from '../../redux/selectors';
+import { getContacts } from '../../redux/contactsSlice';
+import { getFilterSearch } from '../../redux/filterSearchSlice';
 
 export default function ContactEl() {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilterSearch);
+  const { contacts } = useSelector(getContacts);
+  const { filter } = useSelector(getFilterSearch);
 
   const filteredContacts = contacts.filter(({ name }) => {
     return name.toLowerCase().trim().includes(filter);

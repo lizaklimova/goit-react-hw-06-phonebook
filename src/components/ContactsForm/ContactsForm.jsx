@@ -13,7 +13,7 @@ import { nanoid } from '@reduxjs/toolkit';
 export default function ContactsForm() {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(getContacts);
+  const { contacts } = useSelector(getContacts);
 
   const idName = nanoid();
   const idNumber = nanoid();
@@ -31,7 +31,6 @@ export default function ContactsForm() {
   };
 
   const checkExistingContact = value => {
-    console.log(contacts);
     return contacts.some(contact => contact.number === value);
   };
 
