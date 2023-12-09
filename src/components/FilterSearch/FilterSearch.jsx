@@ -13,10 +13,11 @@ export default function FilterSearch() {
   const handleFilterSearch = e => {
     const { value } = e.currentTarget;
 
-    dispatch(filterSearch(value.toLowerCase()));
+    dispatch(filterSearch(value.toLowerCase().trim()));
   };
 
   const searchId = nanoid();
+
   return (
     <SearchContainer>
       <SearchLabel htmlFor={searchId}>Find contact by name</SearchLabel>

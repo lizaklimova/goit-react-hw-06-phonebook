@@ -7,9 +7,8 @@ import {
   SubmitBtn,
 } from './ContactsForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact, getContacts } from '../../redux/contactsSlice';
 import { nanoid } from '@reduxjs/toolkit';
-import { getContacts } from '../../redux/selectors';
 
 export default function ContactsForm() {
   const dispatch = useDispatch();
@@ -32,6 +31,7 @@ export default function ContactsForm() {
   };
 
   const checkExistingContact = value => {
+    console.log(contacts);
     return contacts.some(contact => contact.number === value);
   };
 

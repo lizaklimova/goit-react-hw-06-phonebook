@@ -10,20 +10,28 @@ export default function ContactEl() {
   const filter = useSelector(getFilterSearch);
 
   const filteredContacts = contacts.filter(({ name }) => {
-    return name.toLowerCase().includes(filter);
+    return name.toLowerCase().trim().includes(filter);
   });
 
-  return filteredContacts.map(({ id, name, number }, i) => (
-    <ContactLi key={id}>
-      <p>
-        {i + 1}. {name}: {number}
-      </p>
-      <ContactDeleteBtn
-        type="button"
-        onClick={() => dispatch(deleteContact(id))}
-      >
-        Delete ❌
-      </ContactDeleteBtn>
-    </ContactLi>
-  ));
+  return (
+    <>
+      {filteredContacts.length > 0 ? (
+        filteredContacts.map(({ id, name, number }, i) => (
+          <ContactLi key={id}>
+            <p>
+              {i + 1}. {name}: {number}
+            </p>
+            <ContactDeleteBtn
+              type="button"
+              onClick={() => dispatch(deleteContact(id))}
+            >
+              Delete ❌
+            </ContactDeleteBtn>
+          </ContactLi>
+        ))
+      ) : (
+        <div>No</div>
+      )}
+    </>
+  );
 }
