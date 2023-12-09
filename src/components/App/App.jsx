@@ -16,7 +16,8 @@ export default function App() {
       <ContactsSection>
         <h2>Contacts</h2>
         <FilterSearch />
-        {contacts.length > 0 ? <ContactsList /> : <p>No contacts found</p>}
+
+        {contacts.length > 0 ? <ContactsList /> : <p>No contacts added yet</p>}
       </ContactsSection>
     </Container>
   );

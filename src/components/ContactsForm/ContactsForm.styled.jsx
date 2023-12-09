@@ -6,6 +6,10 @@ export const ContactsFormEl = styled.form`
   position: relative;
   gap: 15px;
   letter-spacing: 0.05em;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 export const ContactsNameInput = styled.input`

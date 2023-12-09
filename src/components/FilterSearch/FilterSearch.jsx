@@ -5,7 +5,7 @@ import {
 } from './FilterSearch.styled';
 import { useDispatch } from 'react-redux';
 import { filterSearch } from '../../redux/filterSearchSlice';
-import { nanoid } from '@reduxjs/toolkit';
+import { IoSearchOutline } from 'react-icons/io5';
 
 export default function FilterSearch() {
   const dispatch = useDispatch();
@@ -16,13 +16,14 @@ export default function FilterSearch() {
     dispatch(filterSearch(value.toLowerCase().trim()));
   };
 
-  const searchId = nanoid();
-
   return (
     <SearchContainer>
-      <SearchLabel htmlFor={searchId}>Find contact by name</SearchLabel>
+      <SearchLabel htmlFor="searchInput">
+        Search for contacts
+        <IoSearchOutline />
+      </SearchLabel>
       <SearchInput
-        id={searchId}
+        id="searchInput"
         type="text"
         onChange={handleFilterSearch}
         placeholder="Enter name"

@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ContactLi, ContactDeleteBtn } from './ContactEl.styled';
+import {
+  ContactLi,
+  ContactWrapper,
+  ContactDeleteBtn,
+  ContactIcon,
+} from './ContactEl.styled';
 import { deleteContact } from '../../redux/contactsSlice';
 import { getContacts } from '../../redux/contactsSlice';
 import { getFilterSearch } from '../../redux/filterSearchSlice';
@@ -19,9 +24,14 @@ export default function ContactEl() {
       {filteredContacts.length > 0 ? (
         filteredContacts.map(({ id, name, number }, i) => (
           <ContactLi key={id}>
-            <p>
-              {i + 1}. {name}: {number}
-            </p>
+            <ContactWrapper>
+              <ContactIcon>
+                {name && name.slice(0, 1).toUpperCase()}
+              </ContactIcon>
+              <p>
+                {name}: {number}
+              </p>
+            </ContactWrapper>
             <ContactDeleteBtn
               type="button"
               onClick={() => dispatch(deleteContact(id))}
@@ -31,7 +41,7 @@ export default function ContactEl() {
           </ContactLi>
         ))
       ) : (
-        <div>No</div>
+        <div>No contacts found on filter {filter}</div>
       )}
     </>
   );

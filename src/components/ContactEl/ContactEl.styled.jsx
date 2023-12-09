@@ -10,6 +10,11 @@ export const ContactLi = styled.li`
   margin-bottom: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  width: auto;
+`;
+export const ContactWrapper = styled.div`
+  display: flex;
+  gap: 15px;
 `;
 export const ContactDeleteBtn = styled.button`
   border: none;
@@ -26,4 +31,15 @@ export const ContactDeleteBtn = styled.button`
   &:hover {
     transform: scale(1.05);
   }
+`;
+
+export const ContactIcon = styled.span`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-weight: 700;
 `;
