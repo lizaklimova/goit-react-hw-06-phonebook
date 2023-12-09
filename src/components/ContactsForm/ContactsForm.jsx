@@ -42,7 +42,7 @@ export default function ContactsForm() {
         type="text"
         name="name"
         placeholder="Full name"
-        //! pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         required
       />
       <Label htmlFor={idNumber}>Number</Label>
@@ -51,7 +51,8 @@ export default function ContactsForm() {
         type="tel"
         name="number"
         placeholder="123-45-67"
-        //! pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+        pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+        title="Please, enter valid format of number. Ex: (123-45-67)"
         required
       />
       <SubmitBtn type="submit">
